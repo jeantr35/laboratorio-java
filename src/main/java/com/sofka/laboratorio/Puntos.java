@@ -175,4 +175,20 @@ public class Puntos {
 
     }
 
+    public void puntoDoce(){
+        String palabra1;
+        String palabra2;
+        int i;
+
+        System.out.print("Por favor ingrese la primer palabra: ");
+        palabra1 = lectorTeclado.leerFrase();
+        System.out.print("Por favor ingrese la segunda palabra");
+        palabra2 = lectorTeclado.leerFrase();
+
+        if (palabra1.equalsIgnoreCase(palabra2)){
+            System.out.print("Las palabras son iguales");
+        }
+
+    }
+
 }
