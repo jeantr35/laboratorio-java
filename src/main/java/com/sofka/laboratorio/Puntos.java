@@ -77,4 +77,15 @@ public class Puntos {
         }
     }
 
+    public void puntoSiete(){
+        double numero = -1.0;
+
+        do {
+            System.out.println("Ingresa un numero mayor o igual a 0");
+            numero = lectorTeclado.leerDouble();
+        }
+        while (numero < 0);
+        System.out.println("Su numero ingresado fue: " + numero);
+    }
+
 }
