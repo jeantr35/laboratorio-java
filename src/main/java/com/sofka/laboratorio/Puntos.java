@@ -45,8 +45,16 @@ public class Puntos {
 
         System.out.print("Por favor ingrese el radio de el circulo: ");
         radio = lectorTeclado.leerDouble();
-        System.out.print("El valor del area del circulo es: " + (Math.PI*Math.pow(radio,2)));
+        System.out.println("El valor del area del circulo es: " + (Math.PI*Math.pow(radio,2)));
 
+    }
+
+    public void  puntoCuatro(){
+        double precio;
+
+        System.out.print("Por favor ingrese el valor del articulo: ");
+        precio = lectorTeclado.leerDouble();
+        System.out.println("El valor del articulo con IVA es de: " + (precio*1.21));
     }
 
 }
