@@ -50,7 +50,7 @@ public class Puntos {
 
     }
 
-    public void  puntoCuatro(){
+    public void puntoCuatro(){
         double precio;
 
         System.out.print("Por favor ingrese el valor del articulo: ");
@@ -65,6 +65,15 @@ public class Puntos {
             if ((contador % 2) == 0){System.out.println("El numero: " + contador + " es par");}
             else{System.out.println("El numero: " + contador + " es impar");}
             contador += 1;
+        }
+    }
+
+    public void puntoSeis(){
+        int i;
+
+        for (i = 1; i <= 100; i += 1) {
+            if ((i % 2) == 0) {System.out.println("El numero: " + i + " es par");}
+            else {System.out.println("El numero: " + i + " es impar");}
         }
     }
 
