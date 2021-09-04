@@ -131,4 +131,22 @@ public class Puntos {
 
     }
 
+    public void puntoNueve(){
+        String frase = "La sonrisa sera la mejor arma contra la tristeza ";
+
+        frase = frase.replace("a", "e");
+        System.out.print("Por favor ingrese la frase a concatenar: ");
+        frase = frase.concat(lectorTeclado.leerFrase());
+        System.out.println(frase);
+    }
+
+    public void puntoDiez(){
+        String frase = "";
+
+        System.out.print("Por favor ingrese la frase: ");
+        frase = lectorTeclado.leerFrase();
+        frase = frase.replace(" ", "");
+        System.out.println(frase);
+    }
+
 }
