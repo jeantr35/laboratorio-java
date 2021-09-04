@@ -3,6 +3,7 @@ package com.sofka.laboratorio;
 import java.util.Scanner;
 
 public class Puntos {
+    LectorTeclado lectorTeclado = new LectorTeclado();
     public void puntoUno(){
         int numero1 = 3;
         int numero2 = 4;
@@ -21,7 +22,6 @@ public class Puntos {
     public void puntoDos(){
         double numero1;
         double numero2;
-        LectorTeclado lectorTeclado = new LectorTeclado();
 
         System.out.print("Por favor ingrese el primer numero: ");
         numero1 = lectorTeclado.leerDouble();
@@ -40,6 +40,13 @@ public class Puntos {
 
     }
 
+    public void puntoTres(){
+        double radio;
 
+        System.out.print("Por favor ingrese el radio de el circulo: ");
+        radio = lectorTeclado.leerDouble();
+        System.out.print("El valor del area del circulo es: " + (Math.PI*Math.pow(radio,2)));
+
+    }
 
 }
