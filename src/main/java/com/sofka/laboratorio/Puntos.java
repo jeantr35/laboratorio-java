@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Puntos {
     LectorTeclado lectorTeclado = new LectorTeclado();
+
     public void puntoUno(){
         int numero1 = 3;
         int numero2 = 4;
@@ -55,6 +56,16 @@ public class Puntos {
         System.out.print("Por favor ingrese el valor del articulo: ");
         precio = lectorTeclado.leerDouble();
         System.out.println("El valor del articulo con IVA es de: " + (precio*1.21));
+    }
+
+    public void puntoCinco(){
+        int contador = 1;
+
+        while (contador <= 100){
+            if ((contador % 2) == 0){System.out.println("El numero: " + contador + " es par");}
+            else{System.out.println("El numero: " + contador + " es impar");}
+            contador += 1;
+        }
     }
 
 }
