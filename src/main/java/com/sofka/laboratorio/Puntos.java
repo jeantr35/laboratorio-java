@@ -1,8 +1,13 @@
 package com.sofka.laboratorio;
 
 
+import java.util.HashMap;
+import java.util.Locale;
+
+
 public class Puntos {
     LectorTeclado lectorTeclado = new LectorTeclado();
+    private HashMap<Character, Integer> hashMap = new HashMap<>();
 
     public void puntoUno(){
         int numero1 = 3;
@@ -147,6 +152,27 @@ public class Puntos {
         frase = lectorTeclado.leerFrase();
         frase = frase.replace(" ", "");
         System.out.println(frase);
+    }
+
+    public void puntoOnce(){
+        String frase;
+        int i;
+
+        hashMap.put('a', 0);
+        hashMap.put('e', 0);
+        hashMap.put('i', 0);
+        hashMap.put('o', 0);
+        hashMap.put('u', 0);
+
+        System.out.print("Ingrese por favor la frase: ");
+        frase = lectorTeclado.leerFrase().toLowerCase();
+
+        for (i=0; i<frase.length(); i += 1){
+            hashMap.computeIfPresent(frase.charAt(i),(k, v) -> v + 1);
+        }
+        System.out.println("La longitud de la frase ingresada es: " + frase.length());
+        hashMap.forEach((k,v) -> System.out.println(k + ":" + v));
+
     }
 
 }
