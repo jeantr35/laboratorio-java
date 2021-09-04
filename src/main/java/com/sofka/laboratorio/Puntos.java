@@ -1,6 +1,5 @@
 package com.sofka.laboratorio;
 
-import java.util.Scanner;
 
 public class Puntos {
     LectorTeclado lectorTeclado = new LectorTeclado();
@@ -86,6 +85,50 @@ public class Puntos {
         }
         while (numero < 0);
         System.out.println("Su numero ingresado fue: " + numero);
+    }
+
+    public void puntoOcho(){
+        String dia;
+        boolean valido = false;
+        do {
+            System.out.print("Por favor ingrese un dia de la semana: ");
+            dia = lectorTeclado.leerFrase();
+
+            switch (dia){
+                case "lunes":
+                    System.out.println("El " + dia + " es un dia laboral");
+                    valido = true;
+                    break;
+                case "martes":
+                    System.out.println("El " + dia + " es un dia laboral");
+                    valido = true;
+                    break;
+                case "miercoles":
+                    System.out.println("El " + dia + " es un dia laboral");
+                    valido = true;
+                    break;
+                case "jueves":
+                    System.out.println("El " + dia + " es un dia laboral");
+                    valido = true;
+                    break;
+                case "viernes":
+                    System.out.println("El " + dia + " es un dia laboral");
+                    valido = true;
+                    break;
+                case "sabado":
+                    System.out.println("El " + dia + " es un dia no laboral");
+                    valido = true;
+                    break;
+                case "domingo":
+                    System.out.println("El " + dia + " es un dia no laboral");
+                    valido = true;
+                    break;
+                default:
+                    System.out.println("Este no es un dia valido, intentelo de nuevo");
+            }
+        }
+        while (!valido);
+
     }
 
 }

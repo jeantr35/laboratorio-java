@@ -1,5 +1,6 @@
 package com.sofka.laboratorio;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class LectorTeclado {
@@ -23,5 +24,14 @@ public class LectorTeclado {
         while (!valido);
 
         return numero;
+    }
+
+    public String leerFrase(){
+        String frase;
+
+        frase = scanner.nextLine();
+        frase = frase.toLowerCase();
+        return  frase;
+
     }
 }
