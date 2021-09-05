@@ -1,6 +1,7 @@
 package com.sofka.laboratorio;
 
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Locale;
 
@@ -188,6 +189,14 @@ public class Puntos {
         if (palabra1.equalsIgnoreCase(palabra2)){
             System.out.print("Las palabras son iguales");
         }
+
+    }
+
+    public void puntoTrece(){
+        LocalDateTime fecha = LocalDateTime.now();
+
+        System.out.println(fecha);
+
 
     }
 
