@@ -200,4 +200,21 @@ public class Puntos {
 
     }
 
+    public void puntoCatorce(){
+        int numero;
+        boolean valido = false;
+
+        do {
+            System.out.println("Ingrese un numero entero menor o igual a 1000 por favor: ");
+            numero = lectorTeclado.leerInt();
+            valido = (numero <= 1000) ? true : false;
+        }
+        while (!valido);
+        while (numero <= 1000){
+            System.out.println(numero);
+            numero += 2;
+        }
+
+    }
+
 }
