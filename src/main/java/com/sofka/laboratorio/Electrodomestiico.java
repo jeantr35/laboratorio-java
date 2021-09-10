@@ -6,10 +6,10 @@ public class Electrodomestiico {
     char consumoEnergetico;
     int peso;
 
-    private static final int pesoDefault = 5;
-    private static final int precioDefault = 100;
-    private static final char consumoDefault = 'F';
-    private static final String colorDefault = "blanco";
+    protected static final int pesoDefault = 5;
+    protected static final int precioDefault = 100;
+    protected static final char consumoDefault = 'F';
+    protected static final String colorDefault = "blanco";
 
     public Electrodomestiico(){
         this.peso = pesoDefault;
@@ -62,7 +62,7 @@ public class Electrodomestiico {
         else {this.color = colorDefault;}
     }
 
-    public void precioFinal(){
+    public int precioFinal(){
         switch (consumoEnergetico){
             case 'A':
                 this.precio += 100;
@@ -95,6 +95,9 @@ public class Electrodomestiico {
         else {
             this.precio +=100;
         }
+
+        return getPrecio();
+
     }
 
 }
