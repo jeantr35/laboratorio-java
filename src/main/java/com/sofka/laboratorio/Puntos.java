@@ -333,4 +333,64 @@ public class Puntos {
 
     }
 
+    public void puntoDiezOcho(){
+        ArrayList<Series> series = new ArrayList<>();
+        ArrayList<Videojuego> videojuegos = new ArrayList<>();
+        int mayorHorasVideoJuegos = 0;
+        int mayorTemporadasSeries = 0;
+        int entregados = 0;
+
+        series.add(new Series());
+        series.add(new Series());
+        series.add(new Series("Startup","Ben Ketai", "Drama", 1));
+        series.add(new Series("Prueba","Jean Trujillo", "Accion", 5));
+        series.add(new Series());
+
+        videojuegos.add(new Videojuego());
+        videojuegos.add(new Videojuego("Halo",40));
+        videojuegos.add(new Videojuego("Smite", 15));
+        videojuegos.add(new Videojuego("Pokemon GO", 20));
+        videojuegos.add(new Videojuego());
+
+        videojuegos.get(1).entregar();
+        videojuegos.get(4).entregar();
+
+        series.get(1).entregar();
+        series.get(2).entregar();
+        series.get(4).entregar();
+
+        for (Videojuego vJuego: videojuegos){
+            if(vJuego.isEntregado()){
+                entregados++;
+            }
+        }
+
+        System.out.println("Total de videojuegos entregados: " + entregados);
+        entregados = 0;
+
+        for (Series ser: series){
+            if(ser.isEntregado()){
+                entregados++;
+            }
+        }
+        System.out.println("Total de series entregadas: " + entregados);
+
+        for (int i=0; i< 4; i++){
+            mayorHorasVideoJuegos = videojuegos.get(i).compareTo(videojuegos.get(i+1)) > mayorHorasVideoJuegos? videojuegos.get(i).compareTo(videojuegos.get(i+1)) : mayorHorasVideoJuegos;
+            mayorTemporadasSeries = series.get(i).compareTo(series.get(i+1)) > mayorTemporadasSeries? series.get(i).compareTo(series.get(i+1)) : mayorTemporadasSeries;
+        }
+
+        for (int i=0; i< 5; i++){
+            if(videojuegos.get(i).getHorasEstimadas() == mayorHorasVideoJuegos){
+                System.out.println("Videojuegos -----------------");
+                System.out.println(videojuegos.get(i).toString() + "\n");
+            }
+            if(series.get(i).getNumeroDeTemporadas() == mayorTemporadasSeries){
+                System.out.println("Series -----------------");
+                System.out.println(series.get(i).toString() + "\n");
+            }
+        }
+
+    }
+
 }
