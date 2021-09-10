@@ -3,11 +3,10 @@ package com.sofka.laboratorio;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
-import java.util.Locale;
 
 
 public class Puntos {
-    LectorTeclado lectorTeclado = new LectorTeclado();
+    FuncionesAuxiliares funcionesAuxiliares = new FuncionesAuxiliares();
     private HashMap<Character, Integer> hashMap = new HashMap<>();
 
     public void puntoUno(){
@@ -30,9 +29,9 @@ public class Puntos {
         double numero2;
 
         System.out.print("Por favor ingrese el primer numero: ");
-        numero1 = lectorTeclado.leerDouble();
+        numero1 = funcionesAuxiliares.leerDouble();
         System.out.print("Por favor ingrese el segundo numero: ");
-        numero2 = lectorTeclado.leerDouble();
+        numero2 = funcionesAuxiliares.leerDouble();
 
         if (numero1 > numero2){
             System.out.println("El primer numero: " + numero1 + " es mayor que el segundo numero: " + numero2);
@@ -50,7 +49,7 @@ public class Puntos {
         double radio;
 
         System.out.print("Por favor ingrese el radio de el circulo: ");
-        radio = lectorTeclado.leerDouble();
+        radio = funcionesAuxiliares.leerDouble();
         System.out.println("El valor del area del circulo es: " + (Math.PI*Math.pow(radio,2)));
 
     }
@@ -59,7 +58,7 @@ public class Puntos {
         double precio;
 
         System.out.print("Por favor ingrese el valor del articulo: ");
-        precio = lectorTeclado.leerDouble();
+        precio = funcionesAuxiliares.leerDouble();
         System.out.println("El valor del articulo con IVA es de: " + (precio*1.21));
     }
 
@@ -87,7 +86,7 @@ public class Puntos {
 
         do {
             System.out.println("Ingresa un numero mayor o igual a 0");
-            numero = lectorTeclado.leerDouble();
+            numero = funcionesAuxiliares.leerDouble();
         }
         while (numero < 0);
         System.out.println("Su numero ingresado fue: " + numero);
@@ -98,7 +97,7 @@ public class Puntos {
         boolean valido = false;
         do {
             System.out.print("Por favor ingrese un dia de la semana: ");
-            dia = lectorTeclado.leerFrase();
+            dia = funcionesAuxiliares.leerFrase();
 
             switch (dia){
                 case "lunes":
@@ -142,7 +141,7 @@ public class Puntos {
 
         frase = frase.replace("a", "e");
         System.out.print("Por favor ingrese la frase a concatenar: ");
-        frase = frase.concat(lectorTeclado.leerFrase());
+        frase = frase.concat(funcionesAuxiliares.leerFrase());
         System.out.println(frase);
     }
 
@@ -150,7 +149,7 @@ public class Puntos {
         String frase = "";
 
         System.out.print("Por favor ingrese la frase: ");
-        frase = lectorTeclado.leerFrase();
+        frase = funcionesAuxiliares.leerFrase();
         frase = frase.replace(" ", "");
         System.out.println(frase);
     }
@@ -166,7 +165,7 @@ public class Puntos {
         hashMap.put('u', 0);
 
         System.out.print("Ingrese por favor la frase: ");
-        frase = lectorTeclado.leerFrase().toLowerCase();
+        frase = funcionesAuxiliares.leerFrase().toLowerCase();
 
         for (i=0; i<frase.length(); i += 1){
             hashMap.computeIfPresent(frase.charAt(i),(k, v) -> v + 1);
@@ -182,9 +181,9 @@ public class Puntos {
         int i;
 
         System.out.print("Por favor ingrese la primer palabra: ");
-        palabra1 = lectorTeclado.leerFrase();
+        palabra1 = funcionesAuxiliares.leerFrase();
         System.out.print("Por favor ingrese la segunda palabra");
-        palabra2 = lectorTeclado.leerFrase();
+        palabra2 = funcionesAuxiliares.leerFrase();
 
         if (palabra1.equalsIgnoreCase(palabra2)){
             System.out.print("Las palabras son iguales");
@@ -206,7 +205,7 @@ public class Puntos {
 
         do {
             System.out.println("Ingrese un numero entero menor o igual a 1000 por favor: ");
-            numero = lectorTeclado.leerInt();
+            numero = funcionesAuxiliares.leerInt();
             valido = (numero <= 1000) ? true : false;
         }
         while (!valido);
@@ -233,7 +232,7 @@ public class Puntos {
 
         do {
             System.out.print(menu);
-            seleccion = lectorTeclado.leerFrase();
+            seleccion = funcionesAuxiliares.leerFrase();
             switch (seleccion){
                 case "1":
                     break;
@@ -256,6 +255,46 @@ public class Puntos {
             }
         }
         while (!seleccion.equalsIgnoreCase("8"));
+    }
+
+    public void puntoDiezSeis(){
+
+        String nombre;
+        int edad;
+        char sexo;
+        int peso;
+        double altura;
+
+        System.out.print("Por favor ingresa el nombre de la persona: ");
+        nombre = funcionesAuxiliares.leerFraseMayus();
+        System.out.print("Por favor ingrese el sexo de la persona (H o M): ");
+        String aux = funcionesAuxiliares.leerFraseMayus();
+        sexo = aux.charAt(0);
+        System.out.print("Por favor ingrese la edad de la persona: ");
+        edad = funcionesAuxiliares.leerInt();
+        System.out.print("Por favor ingrese el peso en kg de la persona: ");
+        peso = funcionesAuxiliares.leerInt();
+        System.out.print("Por favor ingrese la altura en metros de la persona: ");
+        altura = funcionesAuxiliares.leerDouble();
+
+        Persona persona = new Persona(nombre, edad, sexo, peso, altura);
+        Persona persona2 = new Persona(nombre, edad, sexo);
+        Persona persona3 = new Persona();
+
+        funcionesAuxiliares.mensajeIMC(persona);
+        funcionesAuxiliares.mensajeIMC(persona2);
+        funcionesAuxiliares.mensajeIMC(persona3);
+        System.out.println();
+
+        funcionesAuxiliares.mensajeEdad(persona);
+        funcionesAuxiliares.mensajeEdad(persona2);
+        funcionesAuxiliares.mensajeEdad(persona3);
+        System.out.println();
+
+        System.out.println(persona.toString());
+        System.out.println(persona2.toString());
+        System.out.println(persona3.toString());
+
     }
 
 }

@@ -20,22 +20,25 @@ public class Persona {
         this.edad = edad;
         this.peso = peso;
         this.altura = altura;
+        generaDNI();
     }
 
     public Persona(String nombre, int edad, char sexo) {
         this.nombre = nombre;
         this.edad = edad;
         comprobarSexo(sexo);
-        this.peso = 0;
-        this.altura = 0;
+        setPeso(75);
+        setAltura(1.89);
+        generaDNI();
     }
 
     public Persona() {
-        this.nombre = "";
-        this.edad = 0;
+        setNombre("Pancho Diaz");
+        setEdad(30);
         this.sexo = defaultSex;
-        this.peso = 0;
-        this.altura = 0.00;
+        setPeso(50);
+        setAltura(1.60);
+        generaDNI();
     }
 
     public int getEdad() {
@@ -78,6 +81,10 @@ public class Persona {
         this.sexo = sexo;
     }
 
+    public String getDni() {
+        return dni;
+    }
+
     public String calculaIMC(){
         double valorIMC = 0.00;
         valorIMC = getPeso()/(getAltura()*getAltura());
@@ -93,12 +100,32 @@ public class Persona {
     }
 
     private void comprobarSexo(char sexo){
-        if (!(sexo == 'H' || sexo == 'M')){
+        if (!(sexo == 'H' || sexo == 'M' )){
             setSexo('H');
         }
         else{setSexo(sexo);}
     }
 
+    private void generaDNI(){
+        int numeroDNI = (int) (Math.random()*10 -1);
+        String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
 
+        for (int i = 0; i < 7; i++){
+            numeroDNI *= 10;
+            numeroDNI += Math.random()*10 -1;
+        }
+
+        this.dni = String.valueOf(numeroDNI) + String.valueOf(letras.charAt(numeroDNI % 23));
+    }
+
+    @Override
+    public String toString(){
+        return "Nombre: " + getNombre() + "\n" +
+                "Edad: " + getEdad() + "\n" +
+                "Sexo; " + getSexo() + "\n" +
+                "Peso: " + getPeso() + "kg\n" +
+                "Altura: " + getAltura() + "m\n" +
+                "DNI: " + getDni() + "\n";
+    }
 
 }

@@ -3,7 +3,7 @@ package com.sofka.laboratorio;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class LectorTeclado {
+public class FuncionesAuxiliares {
     Scanner scanner = new Scanner(System.in);
 
     public double leerDouble(){
@@ -54,4 +54,30 @@ public class LectorTeclado {
         return  frase;
 
     }
+
+    public String leerFraseMayus(){
+        String frase;
+
+        frase = scanner.nextLine();
+        return  frase;
+
+    }
+
+    public void mensajeIMC(Persona persona){
+        if (persona.calculaIMC().equals("-1")){
+            System.out.println(persona.getNombre() + " tiene el peso por debajo del ideal");
+        }
+        else if(persona.calculaIMC().equals("0")){
+            System.out.println(persona.getNombre() + " tiene el peso ideal");
+        }
+        else{System.out.println(persona.getNombre() + " tiene sobrepeso");}
+    }
+
+    public void mensajeEdad(Persona persona){
+        if(persona.esMayorDeEdad()){
+            System.out.println(persona.getNombre() + " es mayor de edad");
+        }
+        else System.out.println(persona.getNombre() + " es menor de edad");
+    }
+
 }
