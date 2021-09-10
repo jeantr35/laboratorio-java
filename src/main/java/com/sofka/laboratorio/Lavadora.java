@@ -8,6 +8,7 @@ public class Lavadora extends Electrodomestiico {
     public Lavadora(int precio, int peso, char consumoEnergetico, String color, int carga){
         super(precio, peso, consumoEnergetico, color);
         this.carga = carga;
+        precioFinal();
     }
 
     public Lavadora(int precio, int peso){
@@ -15,6 +16,7 @@ public class Lavadora extends Electrodomestiico {
         this.consumoEnergetico = consumoDefault;
         this.color = colorDefault;
         this.carga = cargaDefault;
+        precioFinal();
     }
 
     public Lavadora(){
@@ -23,6 +25,7 @@ public class Lavadora extends Electrodomestiico {
         this.consumoEnergetico = consumoDefault;
         this.color = colorDefault;
         this.carga = cargaDefault;
+        precioFinal();
     }
 
     public int getCarga() {

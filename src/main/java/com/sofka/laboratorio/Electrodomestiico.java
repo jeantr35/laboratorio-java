@@ -16,6 +16,7 @@ public class Electrodomestiico {
         this.precio = precioDefault;
         this.consumoEnergetico = consumoDefault;
         this.color = colorDefault;
+        precioFinal();
     }
 
     public Electrodomestiico(int precio, int peso){
@@ -23,6 +24,7 @@ public class Electrodomestiico {
         this.precio = precio;
         this.consumoEnergetico = consumoDefault;
         this.color = colorDefault;
+        precioFinal();
     }
 
     public Electrodomestiico(int precio, int peso, char consumoEnergetico, String color){
@@ -30,6 +32,7 @@ public class Electrodomestiico {
         this.precio = precio;
         comprobarConsumoEnergetico(consumoEnergetico);
         comprobarColor(color);
+        precioFinal();
     }
 
     public int getPrecio() {

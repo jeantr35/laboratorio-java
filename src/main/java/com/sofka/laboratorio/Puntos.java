@@ -2,7 +2,9 @@ package com.sofka.laboratorio;
 
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 
 public class Puntos {
@@ -294,6 +296,40 @@ public class Puntos {
         System.out.println(persona.toString());
         System.out.println(persona2.toString());
         System.out.println(persona3.toString());
+
+    }
+
+    public void puntoDiezSiete(){
+        int precioTotalElectrodomesticos = 0;
+        int precioTotalLavadoras = 0;
+        int precioTotalTelevisores = 0;
+        ArrayList<Electrodomestiico> electrodomesticos = new ArrayList<>();
+
+        electrodomesticos.add(new Electrodomestiico(200, 100,'F', "blanco"));
+        electrodomesticos.add(new Lavadora(150, 100, 'A', "blanco", 40));
+        electrodomesticos.add(new Televisor(250, 100,'D', "azul",41,false));
+        electrodomesticos.add(new Electrodomestiico(150, 100,'A', "gris"));
+        electrodomesticos.add(new Lavadora(100, 100, 'A', "dorado", 40));
+        electrodomesticos.add(new Televisor(900, 100,'B', "azul",41,true));
+        electrodomesticos.add(new Electrodomestiico(150, 100,'A', "azul"));
+        electrodomesticos.add(new Lavadora(150, 100, 'A', "azul", 40));
+        electrodomesticos.add(new Televisor(120, 100,'C', "rojo",27,false));
+        electrodomesticos.add(new Electrodomestiico(150, 100,'F', "azul"));
+
+
+        for (Electrodomestiico elemento: electrodomesticos){
+            precioTotalElectrodomesticos += elemento.getPrecio();
+            if (elemento instanceof Lavadora){
+                precioTotalLavadoras += elemento.getPrecio();
+            }
+            else if (elemento instanceof  Televisor){
+                precioTotalTelevisores += elemento.getPrecio();
+            }
+        }
+
+        System.out.println("Precio total lavadoras: " + precioTotalLavadoras + "\n" +
+                "Precio total televisores: " + precioTotalTelevisores + "\n" +
+                "Precio total electrodomesticos:" +precioTotalElectrodomesticos);
 
     }
 

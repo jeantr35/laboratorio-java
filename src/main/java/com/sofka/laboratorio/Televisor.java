@@ -10,6 +10,7 @@ public class Televisor extends Electrodomestiico{
         super(precio, peso, consumoEnergetico, color);
         this.resolucion = resolucion;
         this.TDT = TDT;
+        precioFinal();
     }
 
     public Televisor(int precio, int peso) {
@@ -18,6 +19,7 @@ public class Televisor extends Electrodomestiico{
         this.color = colorDefault;
         this.resolucion = resolucionDefault;
         this.TDT = tdtDefault;
+        precioFinal();
     }
 
     public Televisor(){
@@ -27,6 +29,7 @@ public class Televisor extends Electrodomestiico{
         this.color = colorDefault;
         this.resolucion = resolucionDefault;
         this.TDT = tdtDefault;
+        precioFinal();
     }
 
     public int getResolucion() {
